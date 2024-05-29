@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Guessing Game</title>
+    <style>
+        /* Add some basic styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Movie Guessing Game</h1>
+        <input type="text" id="guess-input" placeholder="Guess a movie">
+        <button id="guess-button">Guess</button>
+        <p id="guesses-left">You have 5 guesses left.</p>
+        <div id="clues-container">
+            <h2>Clues:</h2>
+            <p id="genre-clue"></p>
+            <p id="year-clue"></p>
+            <p id="imdb-clue"></p>
+            <p id="runtime-clue"></p>
+            <p id="rating-clue"></p>
+        </div>
+        <div id="previous-guesses-container">
+            <h2>Previous Guesses:</h2>
+            <ul id="previous-guesses-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
