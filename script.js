@@ -7,47 +7,7 @@ const previousGuessesList = document.getElementById('previous-guesses-list');
 
 let previousGuesses = [];
 
-// hard coded movie data to test with
-let movieData = {
-        "Title": "Goodfellas",
-        "Year": "1990",
-        "Rated": "R",
-        "Released": "21 Sep 1990",
-        "Runtime": "145 min",
-        "Genre": "Biography, Crime, Drama",
-        "Director": "Martin Scorsese",
-        "Writer": "Nicholas Pileggi, Martin Scorsese",
-        "Actors": "Robert De Niro, Ray Liotta, Joe Pesci",
-        "Plot": "The story of Henry Hill and his life in the mafia, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.",
-        "Language": "English, Italian",
-        "Country": "United States",
-        "Awards": "Won 1 Oscar. 44 wins & 38 nominations total",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
-        "Ratings": [
-            {
-                "Source": "Internet Movie Database",
-                "Value": "8.7/10"
-            },
-            {
-                "Source": "Rotten Tomatoes",
-                "Value": "95%"
-            },
-            {
-                "Source": "Metacritic",
-                "Value": "92/100"
-            }
-        ],
-        "Metascore": "92",
-        "imdbRating": "8.7",
-        "imdbVotes": "1,259,934",
-        "imdbID": "tt0099685",
-        "Type": "movie",
-        "DVD": "15 Aug 2008",
-        "BoxOffice": "$46,909,721",
-        "Production": "N/A",
-        "Website": "N/A",
-        "Response": "True"
-    }
+let movieData = {};
 
 let guessesRemaining = 5;
 
@@ -77,6 +37,15 @@ const fetchGuessData = async (guess) => {
 }
 
 async function guessMovie() {
+
+    //get daily movie data
+    try {
+        const response = await fetch("./dailyMovieData.json");
+        movieData = await response.json();
+          console.log("movieData", movieData)
+      } catch (error) {
+        console.error(error);
+      }
 
     const guess = guessInput.value.trim();
     if (guess === '') {
