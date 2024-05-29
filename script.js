@@ -37,7 +37,14 @@ const fetchGuessData = async (guess) => {
 }
 
 async function guessMovie() {
-
+    // don't allow guesses if game over
+    if(guessesRemaining === 0){
+        alert("You have run out of guesses. Game over!")
+        // Clear the guess input field
+        guessInput.value = '';
+        return;
+    }
+    
     //get daily movie data
     try {
         const response = await fetch("./dailyMovieData.json");
@@ -53,10 +60,10 @@ async function guessMovie() {
         return;
     }
 
-    const guessData = await fetchGuessData(guess);
+    //const guessData = await fetchGuessData(guess);
 
     //use for testing
-    //const guessData = {"Title":"The Irishman","Year":"2019","Rated":"R","Released":"27 Nov 2019","Runtime":"209 min","Genre":"Biography, Crime, Drama","Director":"Martin Scorsese","Writer":"Steven Zaillian, Charles Brandt","Actors":"Robert De Niro, Al Pacino, Joe Pesci","Plot":"An illustration of Frank Sheeran's life, from W.W.II veteran to hit-man for the Bufalino crime family and his alleged assassination of his close friend Jimmy Hoffa.","Language":"English, Italian, Latin, Spanish, German","Country":"United States","Awards":"Nominated for 10 Oscars. 73 wins & 357 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes","Value":"95%"},{"Source":"Metacritic","Value":"94/100"}],"Metascore":"94","imdbRating":"7.8","imdbVotes":"430,826","imdbID":"tt1302006","Type":"movie","DVD":"27 Nov 2019","BoxOffice":"N/A","Production":"N/A","Website":"N/A","Response":"True"}
+    const guessData = {"Title":"The Irishman","Year":"2019","Rated":"R","Released":"27 Nov 2019","Runtime":"209 min","Genre":"Biography, Crime, Drama","Director":"Martin Scorsese","Writer":"Steven Zaillian, Charles Brandt","Actors":"Robert De Niro, Al Pacino, Joe Pesci","Plot":"An illustration of Frank Sheeran's life, from W.W.II veteran to hit-man for the Bufalino crime family and his alleged assassination of his close friend Jimmy Hoffa.","Language":"English, Italian, Latin, Spanish, German","Country":"United States","Awards":"Nominated for 10 Oscars. 73 wins & 357 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes","Value":"95%"},{"Source":"Metacritic","Value":"94/100"}],"Metascore":"94","imdbRating":"7.8","imdbVotes":"430,826","imdbID":"tt1302006","Type":"movie","DVD":"27 Nov 2019","BoxOffice":"N/A","Production":"N/A","Website":"N/A","Response":"True"}
     
     console.log("this guessData", guessData)
     
@@ -74,6 +81,9 @@ async function guessMovie() {
             alert('Game over! You ran out of guesses.');
         }
     }
+
+    // Clear the guess input field
+    guessInput.value = '';
 }
 
 function displayPreviousGuesses() {
@@ -160,6 +170,7 @@ function displayClues() {
     const yearClue = document.getElementById('year-clue');
     const imdbClue = document.getElementById('imdb-clue');
     const runtimeClue = document.getElementById('runtime-clue');
+    const titleClue = document.getElementById('title-clue');
     const lastGuess = previousGuesses[previousGuesses.length - 1];
     if (lastGuess) {
         genreClue.innerHTML = `Genre: ${lastGuess.genreValue || ''} ${getStyledClue(lastGuess.clues[0])}`;
@@ -171,6 +182,18 @@ function displayClues() {
         yearClue.textContent = `Year:`;
         imdbClue.textContent = `IMDB Rating:`;
         runtimeClue.textContent = `Runtime:`;
+    }
+    // show last letter of movie title if 2 guesses left
+    if (guessesRemaining === 3) {
+        const lastLetter = movieData.Title.slice(-1);
+        titleClue.textContent += ` Movie Last letter: ${lastLetter}`;
+    }
+    // show first and last letter of movie title if 1 guess left
+    if (guessesRemaining === 2) {
+        const firstLetter = movieData.Title[0];
+        const lastLetter = movieData.Title.slice(-1);
+        titleClue.textContent = ` Title First letter: ${firstLetter}, `;
+        titleClue.textContent += ` Title Last letter: ${lastLetter}`;
     }
 }
 
