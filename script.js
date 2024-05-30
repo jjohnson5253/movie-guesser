@@ -73,7 +73,7 @@ async function guessMovie() {
         alert('Congratulations! You guessed the movie correctly!');
     } else {
         guessesRemaining--;
-        guessesLeft.textContent = `You have ${guessesRemaining} guesses left.`;
+        guessesLeft.textContent = `You have ${guessesRemaining} guesses left`;
 
         displayPreviousGuesses();
         //displayPreviousGuess(guess);

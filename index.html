@@ -1,41 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Guessing Game</title>
-    <style>
-        /* Add some basic styling */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .game-container {
-            max-width: 800px;
-            margin: 40px auto;
-            text-align: center;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movle</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap">  <style>
+    /* Basic Styling */
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #f2f2f2; /* Light gray background */
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container Styling */
+    .game-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px; /* Rounded corners */
+      background-color: #e0e0e0; /* Light purple background */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+    /* Header Styling */
+    h1{
+      text-align: center;
+      color: #800080; /* Dark purple heading */
+      font-size: 2em; /* Increase heading size */
+      margin-bottom: 20px;
+    }
+    h4{
+      text-align: center;
+      color: #800080; /* Dark purple heading */
+      font-size: 1em; /* Increase heading size */
+      margin-bottom: 20px;
+    }
+
+    /* Input and Button Styling */
+    input[type="text"], button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px auto;
+      display: block;
+    }
+
+    input[type="text"] {
+      background-color: #fff; /* White input field */
+    }
+
+    button {
+      background-color: #9b30ff; /* Purple button */
+      color: #fff; /* White button text */
+      cursor: pointer; /* Change cursor on hover */
+    }
+
+    /* Clues and Previous Guesses Styling */
+    h2 {
+      color: #800080; /* Dark purple heading */
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    p, ul {
+      color: #333; /* Dark gray text */
+      margin: 10px 0;
+    }
+
+    #previous-guesses-list {
+      list-style: none; /* Remove default bullet points */
+      padding: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="game-container">
-        <h1>Movie Guessing Game</h1>
-        <input type="text" id="guess-input" placeholder="Guess a movie">
-        <button id="guess-button">Guess</button>
-        <p id="guesses-left">You have 5 guesses left.</p>
-        <div id="clues-container">
-            <h2>Clues:</h2>
-            <p id="genre-clue"></p>
-            <p id="year-clue"></p>
-            <p id="imdb-clue"></p>
-            <p id="runtime-clue"></p>
-            <p id="title-clue"></p>
-        </div>
-        <div id="previous-guesses-container">
-            <h2>Previous Guesses:</h2>
-            <ul id="previous-guesses-list"></ul>
-        </div>
+  <div class="game-container">
+    <h1>Movle</h1>
+    <h4>A Movie Guessing Game</h4>
+    <input type="text" id="guess-input" placeholder="Guess a movie">
+    <button id="guess-button">Guess</button>
+    <p id="guesses-left" style="text-align: center;">You have 5 guesses left</p>
+    <div id="clues-container">
+      <h2>Clues:</h2>
+      <p id="genre-clue"></p>
+      <p id="year-clue"></p>
+      <p id="imdb-clue"></p>
+      <p id="runtime-clue"></p>
+      <p id="title-clue"></p>
     </div>
+    <div id="previous-guesses-container">
+      <h2>Previous Guesses:</h2>
+      <ul id="previous-guesses-list"></ul>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
