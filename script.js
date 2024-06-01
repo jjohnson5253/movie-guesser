@@ -60,10 +60,10 @@ async function guessMovie() {
         return;
     }
 
-    //const guessData = await fetchGuessData(guess);
+    const guessData = await fetchGuessData(guess);
 
     //use for testing
-    const guessData = {"Title":"The Irishman","Year":"2019","Rated":"PG-13","Released":"27 Nov 2019","Runtime":"209 min","Genre":"Biography, Crime, Drama","Director":"Martin Scorsese","Writer":"Steven Zaillian, Charles Brandt","Actors":"Robert De Niro, Al Pacino, Joe Pesci","Plot":"An illustration of Frank Sheeran's life, from W.W.II veteran to hit-man for the Bufalino crime family and his alleged assassination of his close friend Jimmy Hoffa.","Language":"English, Italian, Latin, Spanish, German","Country":"United States","Awards":"Nominated for 10 Oscars. 73 wins & 357 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes","Value":"95%"},{"Source":"Metacritic","Value":"94/100"}],"Metascore":"94","imdbRating":"7.8","imdbVotes":"430,826","imdbID":"tt1302006","Type":"movie","DVD":"27 Nov 2019","BoxOffice":"N/A","Production":"N/A","Website":"N/A","Response":"True"}
+    //const guessData = {"Title":"The Irishman","Year":"2019","Rated":"PG-13","Released":"27 Nov 2019","Runtime":"209 min","Genre":"Biography, Crime, Drama","Director":"Martin Scorsese","Writer":"Steven Zaillian, Charles Brandt","Actors":"Robert De Niro, Al Pacino, Joe Pesci","Plot":"An illustration of Frank Sheeran's life, from W.W.II veteran to hit-man for the Bufalino crime family and his alleged assassination of his close friend Jimmy Hoffa.","Language":"English, Italian, Latin, Spanish, German","Country":"United States","Awards":"Nominated for 10 Oscars. 73 wins & 357 nominations total","Poster":"https://m.media-amazon.com/images/M/MV5BMGUyM2ZiZmUtMWY0OC00NTQ4LThkOGUtNjY2NjkzMDJiMWMwXkEyXkFqcGdeQXVyMzY0MTE3NzU@._V1_SX300.jpg","Ratings":[{"Source":"Internet Movie Database","Value":"7.8/10"},{"Source":"Rotten Tomatoes","Value":"95%"},{"Source":"Metacritic","Value":"94/100"}],"Metascore":"94","imdbRating":"7.8","imdbVotes":"430,826","imdbID":"tt1302006","Type":"movie","DVD":"27 Nov 2019","BoxOffice":"N/A","Production":"N/A","Website":"N/A","Response":"True"}
     
     console.log("this guessData", guessData)
     
